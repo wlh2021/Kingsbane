@@ -56,7 +56,7 @@ export function add(data) {
  */
 export function update(data) {
   return request({
-    url: baseURL,
+    url: '/user',
     method: 'put',
     data
   })
@@ -68,7 +68,7 @@ export function update(data) {
  */
 export function delById(id) {
   return request({
-    url: baseURL + '/' + id,
+    url: '/user' + '/' + id,
     method: 'delete'
   })
 }
@@ -79,8 +79,18 @@ export function delById(id) {
  */
 export function onlineById(id) {
   return request({
-    url: baseURL + '/online/' + id,
+    url: '/user' + '/online/' + id,
     method: 'delete'
   })
 }
 
+/**
+ * 列表查询不分页
+ * @param {*} searchForm
+ */
+ export function listAll() {
+  return request({
+    url: '/user/All',
+    method: 'get',
+  })
+}

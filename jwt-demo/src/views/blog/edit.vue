@@ -56,7 +56,7 @@ export default {
   methods: {
     getBlog() {
       if (this.$route.query.id) {
-        blog.getBlogById(this.$route.query.id).then((res) => {
+        blog.getBlogById(this.$route.query.id,this.$route.query.flag).then((res) => {
           this.blog = res.data;
         });
       }

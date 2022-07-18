@@ -27,6 +27,12 @@
             @click="search()"
           ></i>
         </div>
+        <div class="association">
+          <div class="word" v-for="word in words" :key="word">
+            <h1 class="wordh1" @click="choice(word)">{{word}}</h1>
+            </div>
+        </div>
+        
       </div>
     </transition>
     <div class="Home">
@@ -51,6 +57,7 @@ import axios from "axios";
 import BaseHeader from "../views/common/BaseHeader.vue";
 import BaseFooter from "../views/common/BaseFooter.vue";
 import { addVisits } from "../api/visit";
+import {getWords} from "../api/word";
 import WordCloud from "../components/WordCloud.vue";
 export default {
   name: "Home",
@@ -59,13 +66,17 @@ export default {
     return {
       flag: this.$store.state.maskFlag,
       mySearch: "",
+      words:[],
     };
   },
   mounted() {
     this.$refs.wordcloud.initChart();
+    let ip = returnCitySN["cip"];
+    console.log(ip)
     if (window.performance.navigation.type == 1) {
     } else {
       let ip = returnCitySN["cip"];
+      
       axios({
         url: `https://restapi.amap.com/v5/ip?ip=${ip}&type=4&key=68673521ec0bff8f9ed90b83801ccda0`,
         method: "get",
@@ -89,6 +100,10 @@ export default {
       });
       this.shutdown();
     },
+    choice(word){
+      this.mySearch = word
+      console.log(word)
+    }
   },
   watch: {
     "$route.path": {
@@ -107,6 +122,19 @@ export default {
         this.mySearch = "";
       }
     },
+    mySearch(curVal, oldVal) {
+        // 实现input连续输入，只发一次请求
+        clearTimeout(this.timeout);
+        
+        this.timeout = setTimeout(() => {
+          getWords(this.mySearch).then((res) => {
+            this.words = res.data
+            console.log(res)
+          })
+          //this.getListPOI(curVal);
+          //console.log(curVal)
+        }, 300);
+    }
   },
 };
 </script>
@@ -148,6 +176,16 @@ export default {
   float: left;
   font-size: 50px !important;
   color: white;
+}
+.association{
+  position: absolute;
+  display: block;
+  top: 60%;
+  left: 15%;
+  width: 1000px;
+}
+.wordh1{
+  color: white!important;
 }
 /* 过渡效果 */
 .mask-enter,

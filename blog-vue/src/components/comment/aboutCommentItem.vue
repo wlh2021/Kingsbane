@@ -30,7 +30,7 @@
 
         <!-- 子评论-->
         <div
-          v-for="(soncomment, sonindex) in fathercomment.replyVO"
+          v-for="(soncomment, sonindex) in fathercomment.sonComments"
           :key="soncomment.commentId"
           style="margin: 15px 10%; width: 90%"
         >

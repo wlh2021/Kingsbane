@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container">
     主页
-    <h1>网站访问量:{{ visits}}</h1>
+    <!-- <h1>网站访问量:{{ visits}}</h1> -->
     <!-- <div class="dashboard-text">name:{{ name }}</div>
     <div class="dashboard-text">roles:<span v-for="role in roles" :key="role">{{ role }}</span></div> -->
   </div>

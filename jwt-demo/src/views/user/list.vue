@@ -7,7 +7,9 @@
       label-suffix="："
       size="small"
     >
-      <el-form-item>
+      <el-form-item :inline="true">
+        <!-- <el-input placeholder="请输入查询信息" v-model="input" clearable>
+        </el-input> -->
         <el-button
           type="primary"
           icon="el-icon-search"
@@ -57,7 +59,7 @@
         min-width="100"
       >
         <template slot-scope="scope">
-          <el-button size="mini" @click="preById(scope.row.id)">编辑</el-button>
+          <el-button size="mini" @click="preById(scope.row)">编辑</el-button>
            <el-popconfirm title="这是一段内容确定删除吗？" @confirm="delById(scope.row.id)">
             <el-button slot="reference" size="mini" type="danger">删除</el-button>
           </el-popconfirm>
@@ -144,12 +146,12 @@ export default {
         });
     },
     // 调用子组件的preById方法
-    preById(id) {
+    preById(user) {
       // this.$nextTick Dom渲染完执行
       /* this.$nextTick(() => {
         this.$refs.listEdit.preById(userId)
       }) */
-      this.$refs.listEdit.preById(id);
+      this.$refs.listEdit.preById(user);
     },
     // 删除
     delById(id) {

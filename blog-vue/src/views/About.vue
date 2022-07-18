@@ -84,8 +84,8 @@ export default {
     //获取评论信息
     getBlogComments() {
       getBlogComments(this.id).then((res) => {
-        this.commentdetail = res.data;
-        this.count = res.data.length;
+        this.commentdetail = res.data.commentVOList;
+        this.count = res.data.count;
       });
     },
   },

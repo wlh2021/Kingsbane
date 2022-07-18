@@ -112,7 +112,7 @@ export default {
     };
   },
    mounted() {
-    this.ruleForm = JSON.parse(getCommentInfo());
+    // this.ruleForm = JSON.parse(getCommentInfo());
   },
   methods: {
     createcomment(commentId, username, replyCommentId) {

@@ -71,6 +71,7 @@ const user = {
         logout(state.token).then(() => {
           commit('SET_TOKEN', '')
           commit('SET_ROLES', [])
+          sessionStorage.removeItem("user");
           removeToken()
           resolve()
         }).catch(error => {

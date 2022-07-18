@@ -140,7 +140,8 @@ export default {
           this.pageSize,
           this.myCategoryOrTag
         ).then((res) => {
-          res.data.blogDtoList.forEach((blog, i) => {
+          
+          res.data.blogVOList.forEach((blog, i) => {
             switch (i % 3) {
               case 0:
                 this.blogs[0].push(blog);
@@ -163,7 +164,8 @@ export default {
       } else {
         getBlogs(this.currentPage, this.pageSize, this.myCategoryOrTag).then(
           (res) => {
-            res.data.blogDtoList.forEach((blog, i) => {
+            console.log(res)
+            res.data.blogVOList.forEach((blog, i) => {
               switch (i % 3) {
                 case 0:
                   this.blogs[0].push(blog);

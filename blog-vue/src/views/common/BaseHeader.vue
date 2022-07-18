@@ -4,7 +4,7 @@
     <el-image class="img" :src="KB" @click="$router.push('/')"></el-image>
     <i  class="iconfont icon-sousuo category" @click="changeMaskFlag()"></i>
     <p  class="category"><router-link to="/about">关于我</router-link></p>
-    <p  class="category new" @click="goPage('http://file.kingsbane.top:8080')">资源分享</p>
+    <p  class="category new" @click="goPage('http://file.kingsbane.top')">资源分享</p>
     <p  class="category"><router-link to="/timeaxis">时间轴</router-link></p>
     <p  class="category" v-for="i in list" :key="i.category"><router-link :to= "{ path: i.url,query:{category: i.category,flag:0}}">{{i.category}}</router-link></p>
     <p  class="category"><router-link to="/">首页</router-link></p>

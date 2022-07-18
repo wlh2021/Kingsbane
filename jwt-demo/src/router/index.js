@@ -71,8 +71,16 @@ export const constantRouterMap = [
       {
         path: 'list',
         name: 'BlogList',
+        meta: { title: '文章', icon: 'table' },
         component: () => import('@/views/blog/list'),
-        meta: { title: '文章管理', icon: 'table' }
+        //meta: { title: '文章管理', icon: 'table' }
+      },
+      {
+        path: 'dr',
+        name: 'draftReclaim',
+        meta: { title: '草稿/回收箱', icon: 'table' },
+        component: () => import('@/views/blog/draftReclaim'),
+        //meta: { title: '文章管理', icon: 'table' }
       },
     ]
   },
@@ -87,6 +95,20 @@ export const constantRouterMap = [
         name: 'CommentList',
         component: () => import('@/views/comment/list'),
         meta: { title: '评论管理', icon: 'table' }
+      }
+    ]
+  },
+  {
+    path: '/chat',
+    component: Layout,
+    redirect: '/chat/im',
+    name: '聊天室',
+    children: [
+      {
+        path: 'im',
+        name: 'Im',
+        component: () => import('@/views/im/index'),
+        meta: { title: '聊天室', icon: 'table' }
       }
     ]
   },

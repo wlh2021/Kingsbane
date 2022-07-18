@@ -16,3 +16,12 @@ export function getVisits(){
         method:'post',
     })
 }
+
+//发送访客ip
+export function sendIP(ip){
+    return request({
+        url:'/visit/ip',
+        method:'post',
+        data:ip
+    })
+}

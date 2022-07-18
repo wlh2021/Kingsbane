@@ -2,7 +2,10 @@
   <div class="dashboard-container">
     <!-- 查询表单 -->
     <el-form :inline="true" label-width="90px" label-suffix="：" size="small">
+       <!-- <el-input placeholder="请输入查询信息" v-model="input" clearable>
+        </el-input> -->
       <el-form-item>
+       
         <el-button type="primary" icon="el-icon-search" @click="list()"
           >查询</el-button
         >
@@ -138,7 +141,7 @@ export default {
     openEdit(id) {
       let info = this.$router.resolve({
         path:'/edit',
-        query:{id:id}
+        query:{id:id,flag:1}
       })
       window.open(info.href, '_blank')
       // this.$nextTick Dom渲染完执行

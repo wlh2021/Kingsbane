@@ -64,7 +64,7 @@ export default {
         commentMsg: "",
         blogId: "",
         replyUsername: "",
-        parentId: "",
+        parentId: 0,
         replyCommentId: "",
         localStorageFlag: false,
       },
@@ -86,12 +86,13 @@ export default {
     };
   },
    mounted() {
-    this.ruleForm = JSON.parse(getCommentInfo());
+    //this.ruleForm = JSON.parse(getCommentInfo());
   },
   methods: {
     createcomment() {
       this.loading = true;
       this.ruleForm.blogId = this.$parent.blogid;
+      this.ruleForm.parentId = 0;
       var that = this
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {

@@ -1,14 +1,15 @@
 import request from "@/utils/request";
 
 //根据标题模糊查询博客
-export function getBlogs(num,size,search){
+export function getBlogs(num,size,search,ip){
     return request({
         url:'/blogs',
         method:'get',
         params:{
             pageNum: num,
             pageSize: size,
-            search: search
+            search: search,
+            ip:ip
         }
     })
 }

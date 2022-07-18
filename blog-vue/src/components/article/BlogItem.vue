@@ -123,8 +123,9 @@ export default {
       //   sessionStorage.setItem("MainCurrentPage", this.currentPage);
       //   this.isRes = true;
       // }
-      getBlogs(this.currentPage, this.pageSize, this.mytype).then((res) => {
-        res.data.blogDtoList.forEach((blog, i) => {
+      let ip = returnCitySN["cip"];
+      getBlogs(this.currentPage, this.pageSize, this.mytype,ip).then((res) => {
+        res.data.blogVOList.forEach((blog, i) => {
           switch (i % 2) {
             case 0:
               this.blogs[0].push(blog);
